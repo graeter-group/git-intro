@@ -1,5 +1,8 @@
+#! python
+
 # %%
 import itertools as it
+import argparse
 
 # %%
 def fizzbuzz():
@@ -19,6 +22,19 @@ def take(n, iterable):
     return list(it.islice(iterable, n))
 
 # %%
-things = fizzbuzz()
-take(10, things)
 
+msg = "FizzBuzz command line tool"
+parser = argparse.ArgumentParser(description=msg)
+parser.add_argument('n', type=int, help='Number to count up to')
+
+def main():
+    args = parser.parse_args()
+    things = fizzbuzz()
+    result = take(args.n, things)
+    for r in result:
+        print(r)
+
+
+
+if __name__ == '__main__':
+    main()
