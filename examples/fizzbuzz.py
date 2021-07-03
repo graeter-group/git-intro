@@ -22,19 +22,22 @@ def take(n, iterable):
     return list(it.islice(iterable, n))
 
 # %%
-
-msg = "FizzBuzz command line tool"
-parser = argparse.ArgumentParser(description=msg)
-parser.add_argument('n', type=int, help='Number to count up to')
-
 def main():
+    msg = "FizzBuzz command line tool"
+    parser = argparse.ArgumentParser(description=msg)
+    parser.add_argument('n', type=int, help='Number to count up to')
     args = parser.parse_args()
     things = fizzbuzz()
     result = take(args.n, things)
     for r in result:
         print(r)
 
-
-
 if __name__ == '__main__':
     main()
+
+# %%
+def test_fizzbuzz():
+    n = 10
+    things = fizzbuzz()
+    result = take(n, things)
+    assert len(result) == n
