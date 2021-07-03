@@ -41,6 +41,6 @@ Show:
 
 - Comprehensive and complete: <https://git-scm.com/book/en/v2>
 - Cheat Sheet (list): <https://training.github.com/downloads/github-git-cheat-sheet/>
-- Cheat Sheet (graphical): <https://ndpsoftware.com/git-cheatsheet.html#loc=stash;>
+- Cheat Sheet (graphical): <https://ndpsoftware.com/git-cheatsheet.html>
 - 1 hour lecture, very good to _understand_ what happens behind the scenes: <https://missing.csail.mit.edu/2020/version-control/>
 - Summary of a python project structure: <https://github.com/yngvem/python-project-structure>
