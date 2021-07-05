@@ -2,6 +2,8 @@
 
 Introduction to git and GitHub
 
+![Excuse me Sir, do you have a moment to talk about version control?](excuse_me_sir.png)
+
 ## Presentation
 
 Run the following code to render the presention in the terminal:
@@ -44,5 +46,4 @@ Show:
 - Cheat Sheet (graphical): <https://ndpsoftware.com/git-cheatsheet.html>
 - 1 hour lecture, very good to _understand_ what happens behind the scenes: <https://missing.csail.mit.edu/2020/version-control/>
 - Summary of a python project structure: <https://github.com/yngvem/python-project-structure>
-hello
-hello
+- Excuse Me, Do You Have a Moment to Talk About Version Control?: <https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928>
