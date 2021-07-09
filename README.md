@@ -6,7 +6,7 @@ Introduction to git and GitHub
 
 ## Presentation
 
-Run the following code to render the presention:
+Install R and run the following code to render the presentation:
 
 ```bash
 make setup

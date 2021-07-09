@@ -1,0 +1,258 @@
+---
+title: "Introduction to git and GitHub"
+output:
+  xaringan::moon_reader:
+    seal: FALSE
+    lib_dir: 'assets/libs'
+    chakra: 'assets/www/libs/remark-latest.min.js'
+    css:
+      - 'assets/www/xaringan_themer.css'
+      - 'assets/www/presentation_custom.css'
+    includes:
+      after_body: 'assets/www/insert-logo.html'
+    nature:
+      beforeInit: 'assets/www/macros.js'
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+        <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+        </div>
+        </div>
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+      navigation:
+        click: false
+---
+
+```{r setup, include=FALSE}
+options(tidyverse.quiet = TRUE)
+
+library(glue)
+library(knitr)
+library(tidyverse)
+library(patchwork)
+library(ragg)
+library(xaringanthemer)
+library(RefManageR)
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  error = FALSE,
+  fig.align = 'center',
+  fig.show = "hold",
+  dev = "ragg_png",
+  fig.retina = 3,
+  comment = ""
+)
+
+HITS_COL <- "#1E4287"
+HITS_GREEN <- "#019050"
+HITS_MAGENTA <- "#c3006b"
+HITS_YELLOW <- "#ffcc00"
+
+theme_set(ggthemes::theme_tufte(base_family = "Roboto") %+%
+          theme(plot.title.position = "plot")
+)
+
+style_mono_accent(
+  # title_slide_background_image = "img/some_image.png" # relative to the file path of xaringan_themer.css,
+  base_color = HITS_COL,
+  header_h1_font_size = "40px",
+  header_h2_font_size = "25px",
+  header_h3_font_size = "15px",
+  header_font_family = "Miriam Libre, sans-serif",
+  text_font_family   = "Roboto Light, sans-serif",
+  code_font_family = 'Fira Code',
+  header_font_weight = '450',
+  outfile = "assets/www/xaringan_themer.css"
+)
+
+xaringanExtra::use_tile_view()
+xaringanExtra::use_panelset()
+xaringanExtra::use_animate_css()
+xaringanExtra::use_tachyons()
+```
+
+
+class: center, middle, bg-black, white
+
+![](images/excuse_me_sir.png)
+
+by Kai and Jannik
+
+---
+
+layout: true
+
+.my-footer[
+<span> Contact: [Kai](https://www.h-its.org/people/kai-riedmuller/) and [Jannik](https://jmbuhr.de/)</span>
+
+]
+
+---
+
+## The Problem(s)
+
+.center.w-50[
+![](images/jenny_bryan.png)
+]
+
+.gray[From: Bryan, J. 2017. “Excuse Me, Do You Have a Moment to Talk about Version Control?” PeerJ Prepr. https://doi.org/10.7287/peerj.preprints.3159v2.]
+
+
+---
+
+## What is git?
+
+A version control system based on fancy math graph theory
+
+> Think of it as **Track Changes on steroids**
+
+???
+Things to mention / show:
+
+- Setting up ssh with git and GitHub,
+- Talk about git `config --global`
+  - `pull.rebase`
+  - `init.defaultBranch`
+  - `user.name`
+  - `user.email`
+- Using git with other tools: **vs code extension**(s), **GitHub Desktop**
+
+Demonstrate:
+
+- "This code doesn't run as expected": **GitHub Issues**
+- "Indeed, I can fix it": **git branches**
+- "This is what I did, can you include it in the main code?": **Pull Request**
+- "Let me review those fixes": **code review**
+- "Looks good now, ready to": **Merge**
+
+Show:
+
+- This works across repositories as well: **forks** and ***Pull Requests** for contributing to Open Source Software
+- e.g. <https://github.com/rstudio/rmarkdown/pull/1996>
+
+---
+
+## Concepts
+
+.pull-left[
+commits
+
+```text
+o <-- o <-- o <-- o
+```
+
+branches
+
+```text
+o <-- o <-- o <-- o
+            ^
+             \
+              --- o <-- o
+```
+]
+
+.pull-right[
+
+merging
+
+```text
+o <-- o <-- o <-- o <---- o
+            ^            /
+             \          v
+              --- o <-- o
+```
+
+rebasing
+
+```text
+o <-- o <-- o <-- o <---- o
+                          ^            
+                           \          
+                            --- o <-- o
+```
+]
+
+---
+
+## Why should you use git?
+
+- reproducibility
+- collaboration
+- fearless experimentation
+
+---
+
+## How do you use git?
+
+Demo time!
+
+???
+https://missing.csail.mit.edu/2020/version-control/
+
+
+### Basics
+
+- `git help <command>`: get help for a git command
+- `git init`: creates a new git repo, with data stored in the .git directory
+- `git status`: tells you what’s going on
+- `git add <filename>`: adds files to staging area
+- `git commit`: creates a new commit
+- `git log`: shows a flattened log of history
+- `git log --all --graph --decorate`: visualizes history as a DAG
+- `git diff <filename>`: show changes you made relative to the staging area
+- `git diff <revision> <filename>:` shows differences in a file between snapshots
+- `git checkout <revision>`: updates HEAD and current branch
+
+### Branching and merging
+
+- `git branch`: shows branches
+- `git branch <name>`: creates a branch
+- `git checkout -b <name>`: creates a branch and switches to it
+- same as `git branch <name>`; `git checkout <name>`
+- `git merge <revision>`: merges into current branch
+- `git mergetool`: use a fancy tool to help resolve merge conflicts
+- `git rebase`: rebase set of patches onto a new base
+
+### Remotes
+
+- `git remote`: list remotes
+- `git remote add <name> <url>`: add a remote
+- `git push <remote> <local branch>:<remote branch>`: send objects to remote, and update remote reference
+- `git branch --set-upstream-to=<remote>/<remote branch>`: set up correspondence between local and remote branch
+- `git fetch`: retrieve objects/references from a remote
+- `git pull`: same as git fetch; git merge
+- `git clone`: download repository from remote
+
+### Undo
+
+- `git commit --amend`: edit a commit’s contents/message
+- `git reset HEAD <file>`: unstage a file
+- `git checkout -- <file>`: discard changes
+
+### Advanced
+
+- `git config`: Git is highly customizable
+- `git clone --depth=1`: shallow clone, without entire version history
+- `git add -p`: interactive staging
+- `git rebase -i`: interactive rebasing
+- `git blame`: show who last edited which line
+- `git stash`: temporarily remove modifications to working directory
+- `git bisect`: binary search history (e.g. for regressions)
+- `.gitignore`: specify intentionally untracked files to ignore
+
+---
+
+## Git can be hard...
+
+![https://xkcd.com/1597](https://imgs.xkcd.com/comics/git.png)
+
+---
+
+## Collaborating with GitHub
+
+Demo time!
