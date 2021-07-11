@@ -22,7 +22,4 @@ make presentation
 - Summary of a python project structure: <https://github.com/yngvem/python-project-structure>
 - Handy bookmark for common problems: <https://happygitwithr.com/>
 - GitHub's own guides: <https://guides.github.com/>
-
-From: Excuse Me, Do You Have a Moment to Talk About Version Control? by Jenny Bryan:[link](https://www.semanticscholar.org/paper/Excuse-me%2C-do-you-have-a-moment-to-talk-about-Bryan/25756e04f126da30e26b447801a5e2d3e51e3154)
-
-![advandage of git over multiple files and filenames](images/jenny_bryan.png)
+- Research Software Engineering with Python (Chapter 6): <https://merely-useful.tech/py-rse/index.html>
