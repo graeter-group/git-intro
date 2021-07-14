@@ -152,6 +152,23 @@ Show:
 
 ## Concepts
 
+.center.w-50[
+![](images/git_areas.png)
+]
+
+---
+## Concepts
+
+.center.w-50[
+![](images/py-rse.png)
+]
+
+.gray[From: Wilson, Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg. n.d. Research Software Engineering with Python. Accessed July 12, 2021. https://merely-useful.tech/py-rse/]
+
+---
+
+## Concepts
+
 .pull-left[
 commits
 
@@ -189,16 +206,6 @@ o <-- o <-- o <-- o <---- o
                             --- o <-- o
 ```
 ]
-
----
-
-## Concepts
-
-.center.w-50[
-![](images/py-rse.png)
-]
-
-.gray[From: Wilson, Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg. n.d. Research Software Engineering with Python. Accessed July 12, 2021. https://merely-useful.tech/py-rse/]
 
 ---
 
