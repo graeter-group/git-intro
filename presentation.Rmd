@@ -157,6 +157,7 @@ Show:
 ]
 
 ---
+
 ## Concepts
 
 .center.w-50[
