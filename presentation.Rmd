@@ -152,7 +152,7 @@ Show:
 
 ## Concepts
 
-.center.w-50[
+.center.w-80[
 ![](images/git_areas.png)
 ]
 
