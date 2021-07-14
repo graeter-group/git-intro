@@ -45,7 +45,6 @@
   font-size: 1.3em;
 }
 
-
 div.my-footer {
     position: absolute;
     bottom: 0px;
@@ -75,24 +74,6 @@ div.my-footer > p {
   animation-duration: 0.8s;
 }
 
-.cover-rectangle {
-  height: 85%;
-  z-index: 1;
-  width: 100%;
-  max-width: 100%;
-  margin-top: 5%;
-  margin-right: 10%;
-  background-color: var(--background-color);
-  animation-name: revealplot;
-  animation-delay: 0s;
-  animation-duration: 102s;
-}
-
-@keyframes revealplot {
-  from {margin-left: 17%}
-  to {margin-left: 100%}
-}
-
 .background-video {
   z-index: 0;
   position: fixed;
@@ -101,3 +82,6 @@ div.my-footer > p {
 .remark-slide-content .hljs-github {
   z-index: 2;
 }
+
+
+

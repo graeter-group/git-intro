@@ -25,7 +25,7 @@
 
 :root {
   /* Fonts */
-  --text-font-family: 'Roboto Light', sans-serif;
+  --text-font-family: Roboto, sans-serif;
   --text-font-is-google: 0;
   --text-font-family-fallback: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial;
   --text-font-base: sans-serif;
@@ -39,12 +39,12 @@
   --code-font-size: 0.9rem;
   --code-inline-font-size: 1em;
   --header-h1-font-size: 40px;
-  --header-h2-font-size: 25px;
-  --header-h3-font-size: 15px;
+  --header-h2-font-size: 30px;
+  --header-h3-font-size: 20px;
 
   /* Colors */
   --text-color: #272822;
-  --header-color: #1E4287;
+  --header-color: black;
   --background-color: #FFFFFF;
   --link-color: #1E4287;
   --text-bold-color: #1E4287;
@@ -55,7 +55,7 @@
   --inverse-link-color: #1E4287;
   --title-slide-background-color: #1E4287;
   --title-slide-text-color: #FFFFFF;
-  --header-background-color: #1E4287;
+  --header-background-color: black;
   --header-background-text-color: #FFFFFF;
   --base: #1E4287;
   --white: #FFFFFF;

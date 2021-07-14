@@ -1,8 +1,13 @@
-all: presentation
+.PHONY : all setup
 
-presentation: presentation.Rmd
-	R -e 'rmarkdown::render("presentation.Rmd", output_file = "index.html")'
-	xdg-open index.html
+presentation_input=presentation.Rmd
+open=true
+
+all: index.html
+
+index.html: $(presentation_input)
+	R -e 'rmarkdown::render("$<", output_file = "$@")'
+	if $(open); then xdg-open $@; fi
 
 setup:
 	R -e 'install.packages("renv")'
