@@ -3,6 +3,7 @@
   <head>
     <title>Introduction to git and GitHub</title>
     <meta charset="utf-8" />
+    <script src="assets/libs/header-attrs-2.9/header-attrs.js"></script>
     <link href="assets/libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="assets/libs/tile-view-0.2.6/tile-view.js"></script>
     <link href="assets/libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
@@ -27,6 +28,10 @@ class: center, middle
 
 by Kai and Jannik
 
+
+???
+Jannik
+
 ---
 
 layout: true
@@ -50,9 +55,10 @@ layout: true
 
 ## Why should you use git?
 
-- reproducibility
-- collaboration
-- fearless experimentation
+- Reproducibility
+- Collaboration
+- Fearless experimentation
+- Not just for (big) software projects, you can track your analysis, too!
 
 ---
 
@@ -60,51 +66,7 @@ layout: true
 
 A version control system based on fancy math graph theory
 
-
 &gt; Think of it as **Track Changes on steroids**
-
-???
-Things to mention / show:
-
-- Setting up ssh with git and GitHub,
-- Talk about git `config --global`
-  - `pull.rebase`
-  - `init.defaultBranch`
-  - `user.name`
-  - `user.email`
-- Using git with other tools: **vs code extension**(s), **GitHub Desktop**
-- A remote repo doesn't have to be on github, it can also just be a folder on the hits file-system accessed via ssh!
-
-Demonstrate:
-
-- "This code doesn't run as expected": **GitHub Issues**
-- "Indeed, I can fix it": **git branches**
-- "This is what I did, can you include it in the main code?": **Pull Request**
-- "Let me review those fixes": **code review**
-- "Looks good now, ready to": **Merge**
-
-Show:
-
-- This works across repositories as well: **forks** and ***Pull Requests** for contributing to Open Source Software
-- e.g. &lt;https://github.com/rstudio/rmarkdown/pull/1996&gt;
-
----
-
-## Concepts
-
-.center.w-80[
-![](images/git_areas.png)
-]
-
----
-
-## Concepts
-
-.center.w-50[
-![](images/py-rse.png)
-]
-
-.gray[From: Wilson, Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg. n.d. Research Software Engineering with Python. Accessed July 12, 2021. https://merely-useful.tech/py-rse/]
 
 ---
 
@@ -114,16 +76,16 @@ Show:
 commits
 
 ```text
-o &lt;-- o &lt;-- o &lt;-- o
+A &lt;-- B &lt;-- C &lt;-- D
 ```
 
 branches
 
 ```text
-o &lt;-- o &lt;-- o &lt;-- o
+A &lt;-- B &lt;-- C &lt;-- D
             ^
              \
-              --- o &lt;-- o
+              --- E &lt;-- F
 ```
 ]
 
@@ -132,25 +94,45 @@ o &lt;-- o &lt;-- o &lt;-- o
 merging
 
 ```text
-o &lt;-- o &lt;-- o &lt;-- o &lt;---- o
+A &lt;-- B &lt;-- C &lt;-- D &lt;---- E
             ^            /
              \          v
-              --- o &lt;-- o
+              --- E &lt;-- F
 ```
 
 rebasing
 
 ```text
-o &lt;-- o &lt;-- o &lt;-- o &lt;---- o
-                          ^            
-                           \          
-                            --- o &lt;-- o
+A &lt;-- B &lt;-- C &lt;-- D 
+                  ^            
+                   \          
+                    --- E &lt;-- F
 ```
 ]
 
 ---
 
-## How do you use git?
+## Concepts
+
+.pull-left[
+
+![](images/git_areas.png)
+
+]
+
+.pull-right[
+![](images/py-rse.png)
+
+.gray[From: Wilson, Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg. n.d. Research Software Engineering with Python. Accessed July 12, 2021. https://merely-useful.tech/py-rse/]
+
+]
+
+???
+Kai
+
+---
+
+## How do you use git (and GitHub)?
 
 .demo[
 Demo time!
@@ -174,60 +156,45 @@ Demo time!
 }
 &lt;/style&gt;
 
-
 ???
+Things to mention / show:
+
+- Setting up ssh with git and GitHub,
+- Talk about git `config --global`
+  - `pull.rebase`
+  - `init.defaultBranch`
+  - `user.name`
+  - `user.email`
+- Using git with other tools: **vs code extension**(s), **GitHub Desktop**
+- A remote repo doesn't have to be on github, it can also just be a folder on the hits file-system accessed via ssh!
+
+Demonstrate:
+
+- "This code doesn't run as expected": **GitHub Issues**
+- "Indeed, I can fix it": **git branches**
+- "This is what I did, can you include it in the main code?": **Pull Request**
+- "Let me review those fixes": **code review**
+- "Looks good now, ready to": **Merge**
+
+Show:
+
+- This works across repositories as well: **forks** and **Pull Requests** for contributing to Open Source Software
+- e.g. &lt;https://github.com/rstudio/rmarkdown/pull/1996&gt;
+
+
 https://missing.csail.mit.edu/2020/version-control/
 
+---
 
-### Basics
+## Collaborative Features of GitHub
 
-- `git help &lt;command&gt;`: get help for a git command
-- `git init`: creates a new git repo, with data stored in the .git directory
-- `git status`: tells you what’s going on
-- `git add &lt;filename&gt;`: adds files to staging area
-- `git commit`: creates a new commit
-- `git log`: shows a flattened log of history
-- `git log --all --graph --decorate`: visualizes history as a DAG
-- `git diff &lt;filename&gt;`: show changes you made relative to the staging area
-- `git diff &lt;revision&gt; &lt;filename&gt;:` shows differences in a file between snapshots
-- `git checkout &lt;revision&gt;`: updates HEAD and current branch
-
-### Branching and merging
-
-- `git branch`: shows branches
-- `git branch &lt;name&gt;`: creates a branch
-- `git checkout -b &lt;name&gt;`: creates a branch and switches to it
-- same as `git branch &lt;name&gt;`; `git checkout &lt;name&gt;`
-- `git merge &lt;revision&gt;`: merges into current branch
-- `git mergetool`: use a fancy tool to help resolve merge conflicts
-- `git rebase`: rebase set of patches onto a new base
-
-### Remotes
-
-- `git remote`: list remotes
-- `git remote add &lt;name&gt; &lt;url&gt;`: add a remote
-- `git push &lt;remote&gt; &lt;local branch&gt;:&lt;remote branch&gt;`: send objects to remote, and update remote reference
-- `git branch --set-upstream-to=&lt;remote&gt;/&lt;remote branch&gt;`: set up correspondence between local and remote branch
-- `git fetch`: retrieve objects/references from a remote
-- `git pull`: same as git fetch; git merge
-- `git clone`: download repository from remote
-
-### Undo
-
-- `git commit --amend`: edit a commit’s contents/message
-- `git reset HEAD &lt;file&gt;`: unstage a file
-- `git checkout -- &lt;file&gt;`: discard changes
-
-### Advanced
-
-- `git config`: Git is highly customizable
-- `git clone --depth=1`: shallow clone, without entire version history
-- `git add -p`: interactive staging
-- `git rebase -i`: interactive rebasing
-- `git blame`: show who last edited which line
-- `git stash`: temporarily remove modifications to working directory
-- `git bisect`: binary search history (e.g. for regressions)
-- `.gitignore`: specify intentionally untracked files to ignore
+- Issues
+- Organizations, have:
+  - Members
+  - Repos
+  - Teams
+  - Projects
+- Forks (and Pull Requests)
 
 ---
 
@@ -235,13 +202,8 @@ https://missing.csail.mit.edu/2020/version-control/
 
 ![https://xkcd.com/1597](https://imgs.xkcd.com/comics/git.png)
 
----
+But there is always help: &lt;https://github.com/hits-mbm-dev/git-intro#resources&gt;
 
-## Collaborating with GitHub
-
-.demo[
-Demo time!
-]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="assets/www/libs/remark-latest.min.js"></script>
