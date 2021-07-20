@@ -13,7 +13,7 @@ def fizzbuzz():
     while True:
         n += 1
         if n % 3 == 0 and n % 5 == 0:
-            yield "BuzzFizz"
+            yield "FizzBuzz"
         elif n % 3 == 0:
             yield "Fizz"
         elif n % 5 == 0:
